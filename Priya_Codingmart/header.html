@@ -1,0 +1,197 @@
+<html>
+<head>
+<title>Make My Trip</title>
+</head>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<script src="./trip.js"></script>
+
+<link rel="stylesheet" href="styles.css">
+
+<body class="body">
+<img class="logo" src="logo.png">
+<div class="flex-container">
+<li data-cy="mmtDoubleBlack" class="firstbox">
+<span class="BlackIcon"></span>
+<div class="column1">
+<p class="AppendBottom"><i class="fa fa-star" aria-hidden="true"></i>MMT
+<span class="latoBlack">DOUBLEBLACK</span></p>
+<p class="font8">Free Cancellation Assured</p>
+</div>
+</li>
+<li data-cy="myTrips" class="secondbox">
+<span class="BlackIcon2"></span>
+<div class="column2">
+<i class="fa fa-trash" aria-hidden="true"></i>
+<p class="AppendBottom2">MyTrips</p>
+</div>
+</li>
+<li data-cy="support" class="thirdbox">
+<span class="BlackIcon3"></span>
+<div class="column3">
+<p class="AppendBottom3"><i class="fa fa-life-ring" aria-hidden="true"></i>24x7
+<p class="usePerText">support</p>
+</div>
+</li>
+<li data-cy="Wallet" class="fourthbox">
+<span class="BlackIcon4">
+<span><i class="fa fa-archive" aria-hidden="true"></i></span></span>
+</li>
+<li data-cy="myBiz" class="fifthbox">
+<span class="BlackIcon4"></span>
+<div class="column4">
+<p class="AppendBottom4"><i class="fa fa-briefcase" aria-hidden="true"></i> BIZ Introducing myBiz</p>
+<p class="usePerText2">save more on Business travel</p>
+</div>
+</li>
+<li data-cy="account" class="sixbox">
+<span class="BlackIcon5">
+<span class="BlackIcon6"></span></span>
+<div class="column5">
+<p class="AppendBottom5">Login or Create Account</p>
+</div>
+</li>
+</div>
+<!-- This is header -->
+<div class="header">
+<div class="list-item" id="flights" onclick="switchToSelected('flights');">
+<i class="fa fa-fighter-jet" aria-hidden="true"></i>
+<span>Flights</span>
+<div class="bar"></div>
+</div>
+<div class="list-item " id="hotels" onclick="switchToSelected('hotels');">
+<i class="fa fa-building" aria-hidden="true"></i>
+<span>Hotels</span>
+<div class="bar"></div>
+</div>
+<div class="list-item" id="home" onclick="switchToSelected('home');">
+<i class="fa fa-home" aria-hidden="true"></i>
+<span>Villas & Apts</span>
+<div class="bar"></div>
+</div>
+<div class="list-item " id="holiday" onclick="switchToSelected('holiday');">
+<i class="fa fa-lightbulb" aria-hidden="true"></i>
+<span>Holidays</span>
+<div class="bar selected"></div>
+</div>
+<div class="list-item " id="train" onclick="switchToSelected('train');">
+<i class="fa fa-train" aria-hidden="true"></i>
+<span>Trains</span>
+<div class="bar selected"></div>
+</div>
+<div class="list-item" id="bus" onclick="switchToSelected('bus');">
+<i class="fa fa-bus" aria-hidden="true"></i>
+<span>Buses</span>
+<div class="bar selected"></div>
+</div>
+<div class="list-item " id="cab" onclick="switchToSelected('cab');">
+<i class="fa fa-taxi" aria-hidden="true"></i>
+<span>Cabs</span>
+<div class="bar selected"></div>
+</div>
+<div class="list-item" id="visa" onclick="switchToSelected('visa');">
+<i class="fa fa-id-card" aria-hidden="true"></i>
+<span>visa</span>
+<div class="bar selected"></div>
+</div>
+<div class="list-item" id="giftcard" onclick="switchToSelected('giftcard');">
+<i class="fa fa-gift" aria-hidden="true"></i>
+<span>Giftcard</span>
+<div class="bar selected"></div>
+</div>
+<div class="dropdown">
+<div class="list-item dropbtn">
+<i class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></i>
+<span>More</span>
+<div class="bar selected"></div>
+</div>
+<div class="dropdown-content">
+<a>My Biz</a>
+<a>International Flights</a>
+<a>International Hotels</a>
+<a>Deals</a>
+<a>Blog</a>
+</div>
+</div>
+</div>
+<!-- This is flight booking section -->
+<div data-cy="flightSW" class="widgetSection appendBottom40">
+<div class="makeFlex">
+<input type="radio" id="r1" name="rate" value="ONEWAY">ONEWAY
+<input type="radio" id="r2" name="rate" value="ROUND TRIP">ROUND TRIP
+<input type="radio" id="r3" name="rate" value="MULTI CITY" checked="checked">MULTI CITY
+
+<div class="pushRight">
+<h1 class="h1">Book Domestic and International flights</h1>
+</div>
+</div>
+<div class="fsw ">
+<div class="fsw_inner ">
+
+<div class="fsw_inputBox searchCity inactiveWidget ">
+<label for="fromCity"></label>
+<span class="lbl_input latoBold  appendBottom5">From</span>
+<input data-cy="fromCity" id="fromCity" class="fsw_inputField font30 lineHeight36 latoBlack"
+readonly="" value="Delhi">
+<p class="code makeRelative">
+<span class="truncate airPortName" id='fromAirport'>DEL, Delhi Airport India</span></p></label>
+</div>
+
+<div class="exchange" id="exchangeButton" style="z-index: 100">
+<span class="swipCircle" data-role="touch">
+<i class="fas fa-exchange-alt"></i>
+</span></div>
+
+<div class="fsw_inputBox searchToCity inactiveWidget ">
+<label for="toCity">
+<span class="lbl_input latoBold  appendBottom5">To</span>
+<input data-cy="toCity" id="toCity" class="fsw_inputField font30 lineHeight36 latoBlack"
+readonly="" value="Bangalore">
+<p class="code makeRelative">
+<span class="truncate airPortName" id='toAirport'>BLR, Kempegowda International Airport
+India</span></p>
+</label></div>
+
+<input id="departureDatePicker" type="date" onchange="myDepartureFunction(event);" />
+<div class="fsw_inputBox dates inactiveWidget "><label for="departure">
+<span class="lbl_input latoBold appendBottom10">DEPARTURE</span>
+</label></div>
+<input id="returnDatePicker" type="date"onchange="myReturnFunction(event);" />
+<div class="fsw_inputBox dates reDates inactiveWidget  shiftModal">
+<label for="return"><span class="lbl_input latoBold appendBottom10">RETURN</span>
+</label>
+<span class="returnCross landingSprite"></span></div>
+<div data-cy="flightTraveller" class="fsw_inputBox flightTravllers inactiveWidget ">
+<label for="travellers"><span class="lbl_input latoBold appendBottom10">Travellers &amp;CLASS</span>
+</div>
+
+</div>
+<!-- this is for modal box -->
+
+<div onclick="myFunction()">
+<button class="button">Button</button>
+</div>
+</div>
+
+<script>
+// This is for swap
+var fromCity = 'Delhi';
+var toCity = 'Bangalore';
+var fromCityElement = document.querySelector('#fromCity');
+
+var toCityElement = document.querySelector('#toCity');
+
+var exchangeButton = document.getElementById('exchangeButton');
+exchangeButton.addEventListener('click', () => {
+swap();
+});
+
+var fromAirport = 'DEL, Delhi Airport India';
+var toAirport = 'BLR, Kempegowda International Airport India';
+var fromAirportElement = document.querySelector('#fromAirport');
+var toAirportElement = document.querySelector('#toAirport');
+var modal = document.getElementById("myModal");
+var btn = document.getElementById("myBtn");
+</script>
+</body>
+
+</html>
